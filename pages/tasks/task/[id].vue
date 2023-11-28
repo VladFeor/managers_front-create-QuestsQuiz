@@ -1131,7 +1131,7 @@
           <div class="task-sidebar-card_title gate">
             <div class="flex gap-1">
               <span @click="toggle" v-if="!visible" :class="{ gatesIsOpen: open }" class="arrow toggle-gate"></span>
-              Gate
+              Gates
               <TooltipIcon
                 tooltipText="Gate is rules you set that determine who can access your project. To pass a gate, the talent must meet the conditions you specify below."
               />
