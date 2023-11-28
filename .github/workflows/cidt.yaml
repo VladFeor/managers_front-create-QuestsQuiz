@@ -1,0 +1,66 @@
+name: Talentum Manager Frontend - cidt
+
+on:
+  push:
+    branches: [ cidt ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository on Github Runner
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: cidt-talentum-manager-frontend
+          IMAGE_TAG: latest
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      TALENTUM_MANAGERS_FRONTEND_USER: ${{ secrets.TALENTUM_MANAGERS_FRONTEND_USER }}
+      TALENTUM_MANAGERS_FRONTEND_HOST: ${{ secrets.CIDT_MANAGERS_FRONTEND_HOST }}
+      TALENTUM_MANAGERS_FRONTEND_PATH: ${{ secrets.TALENTUM_MANAGERS_FRONTEND_PATH }}
+
+    steps:
+      - name: Checkout the repository on Github Runner
+        uses: actions/checkout@v3
+
+      - name: Prepare SSH for connection
+        run: |
+          mkdir -p ~/.ssh \
+          && touch ~/.ssh/id_rsa \
+          && chmod 600 ~/.ssh/id_rsa
+      - name: Add Private SSH key from Secrets
+        run: |
+          cat << EOF > ~/.ssh/id_rsa
+          ${{ secrets.TALENTUM_MANAGERS_FRONTEND_SSH_KEY }}
+          EOF
+      - name: Send project on the remote server
+        run: |
+          rsync -crvz --delete -e 'ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no' --exclude .git/ --exclude .github/ . \
+          $TALENTUM_MANAGERS_FRONTEND_USER@$TALENTUM_MANAGERS_FRONTEND_HOST:$TALENTUM_MANAGERS_FRONTEND_PATH --chown=$TALENTUM_MANAGERS_FRONTEND_USER:$TALENTUM_MANAGERS_FRONTEND_USER
+      - name: Run project on the remote server
+        run: |
+          ssh -i ~/.ssh/id_rsa $TALENTUM_MANAGERS_FRONTEND_USER@$TALENTUM_MANAGERS_FRONTEND_HOST "
+          cd $TALENTUM_MANAGERS_FRONTEND_PATH \
+          && aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 835003931308.dkr.ecr.us-east-1.amazonaws.com \
+          && docker-compose -f dev-managers-docker-compose.yaml pull \
+          && docker-compose -f dev-managers-docker-compose.yaml up -d --force-recreate"

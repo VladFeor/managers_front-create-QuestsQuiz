@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  front:
+    container_name: talentum_managers
+    image: 835003931308.dkr.ecr.us-east-1.amazonaws.com/cidt-talentum-manager-frontend:latest
+    ports: 
+      - "3001:3000"
+    restart: on-failure

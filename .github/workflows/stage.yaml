@@ -1,0 +1,42 @@
+name: Talentum Manager Frontend - stage
+
+on:
+  push:
+    branches: [ stage ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      STAGE_TALENTUM_MANAGERS_FRONTEND_USER: ${{ secrets.STAGE_TALENTUM_MANAGERS_FRONTEND_USER }}
+      STAGE_TALENTUM_MANAGERS_FRONTEND_HOST: ${{ secrets.STAGE_TALENTUM_MANAGERS_FRONTEND_HOST }}
+      STAGE_TALENTUM_MANAGERS_FRONTEND_PATH: ${{ secrets.STAGE_TALENTUM_MANAGERS_FRONTEND_PATH }}
+
+    steps:
+      - name: Checkout the repository on Github Runner
+        uses: actions/checkout@v3
+
+      - name: Prepare SSH for connection
+        run: |
+          mkdir -p ~/.ssh \
+          && touch ~/.ssh/id_rsa \
+          && chmod 600 ~/.ssh/id_rsa
+
+      - name: Add Private SSH key from Secrets
+        run: |
+          cat << EOF > ~/.ssh/id_rsa
+          ${{ secrets.STAGE_TALENTUM_MANAGERS_FRONTEND_SSH_KEY }}
+          EOF
+
+      - name: Send project on the remote server
+        run: |
+          rsync -crvz --delete -e 'ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no' --exclude .git/ --exclude .github/ . \
+          $STAGE_TALENTUM_MANAGERS_FRONTEND_USER@$STAGE_TALENTUM_MANAGERS_FRONTEND_HOST:$STAGE_TALENTUM_MANAGERS_FRONTEND_PATH --chown=$STAGE_TALENTUM_MANAGERS_FRONTEND_USER:$STAGE_TALENTUM_MANAGERS_FRONTEND_USER
+
+      - name: Run project on the remote server
+        run: |
+          ssh -i ~/.ssh/id_rsa $STAGE_TALENTUM_MANAGERS_FRONTEND_USER@$STAGE_TALENTUM_MANAGERS_FRONTEND_HOST "
+          cd $STAGE_TALENTUM_MANAGERS_FRONTEND_PATH \
+          && docker compose -f managers-docker-compose.yaml up -d --build \
+          && docker container prune --force \
+          && docker image prune --force --all"

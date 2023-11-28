@@ -1,0 +1,47 @@
+.ambassador-badges-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 200px;
+}
+//NOT ACTIVE
+$not-active-text: #38405b;
+$not-active-border: #aaa7cc;
+//ACTIVE
+$danger-active-bg: #ffe0e7;
+$danger-active-text: #d64d69;
+$warning-active-bg: #ffefc2;
+$warning-active-text: #a37800;
+$success-active-bg: #ddfadc;
+$success-active-text: #3ea33b;
+$primary-active-bg: #f5e0ff;
+$primary-active-text: #a94dd6;
+$info-active-bg: #e0ecff;
+$info-active-text: #4979cc;
+$mint-active-bg: #dcf5f3;
+$mint-active-text: #25b8ae;
+$transparent-active-bg: #f5f5fd;
+$transparent-active-text: #38405b;
+//HOVER
+$danger-hover-text: #d64d69;
+$danger-hover-border: #ffe0e7;
+$warning-hover-text: #a37800;
+$warning-hover-border: #ffefc2;
+$success-hover-text: #3ea33b;
+$success-hover-border: #ddfadc;
+$primary-hover-text: #a94dd6;
+$primary-hover-border: #f5e0ff;
+$info-hover-text: #4979cc;
+$info-hover-border: #e0ecff;
+$mint-hover-text: #25b8ae;
+$mint-hover-border: #dcf5f3;
+$transparent-hover-text: #38405b;
+$transparent-hover-border: #aaa7cc;
+//ACTIVE HOVER
+$danger-active-hover-bg: #d64d69;
+$warning-active-hover-bg: #a37800;
+$success-active-hover-bg: #3ea33b;
+$primary-active-hover-bg: #a94dd6;
+$info-active-hover-bg: #4979cc;
+$mint-active-hover-bg: #25b8ae;
+$transparent-active-hover-bg: #6a6d8f;

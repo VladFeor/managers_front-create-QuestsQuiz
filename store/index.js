@@ -1,0 +1,24 @@
+// store/index.ts
+export * from './events';
+export * from './dashboard';
+export * from './activities';
+export * from './projects';
+export * from './pendingClaims';
+export * from './tasks';
+export * from './top';
+export * from './user';
+export * from './auth';
+export * from './talents';
+export * from './managers';
+export * from './ambassadors';
+export * from './assets';
+export * from './coins';
+export * from './discord';
+export * from './web3store';
+export * from './blockchains';
+export * from './referrals';
+export * from './reports';
+export * from './notifications';
+export * from './gates';
+export * from './wallet';
+// export * from './innerWallet;

@@ -1,0 +1,37 @@
+.el-slider__runway {
+  background: #eaeafb;
+  border: 1px solid #dad9f7;
+  border-radius: 4px;
+  height: 6px;
+}
+.el-slider {
+  width: 95%;
+  height: 32px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+.el-slider__marks-text {
+  margin: 0;
+  display: none;
+}
+.el-slider__stop {
+  display: none;
+}
+.el-slider__bar {
+  background: $orange;
+  border-radius: 4px;
+  height: 6px;
+}
+.el-slider__button {
+  width: 16px;
+  height: 16px;
+  background: $orange;
+  border: 2px solid $white;
+  margin-top: 8px;
+}
+.el-slider__button-wrapper {
+  width: 16px;
+  height: 16px;
+  top: -13px;
+}

@@ -1,0 +1,44 @@
+// @import url('https://fonts.cdnfonts.com/css/basis-grotesque-pro');
+
+html,
+html.dark,
+body {
+  background: #f5f5fd;
+}
+
+.nuxt-spa-loading {
+  display: none !important;
+}
+
+.list-padding {
+  padding-left: 42px;
+}
+
+.task-link-wrapper {
+  color: $orange !important;
+}
+
+.section-title {
+  font-family: 'Basis Grotesque Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  color: $section-title;
+}
+
+// .table-text {
+//   font-family: 'Basis Grotesque Pro';
+// }
+
+ul {
+  list-style: disc;
+  list-style-type: disc;
+  // list-style-position: inside;
+}
+
+ol {
+  list-style: decimal;
+  list-style-type: decimal;
+  // list-style-position: inside;
+}

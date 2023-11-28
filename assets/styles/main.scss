@@ -1,0 +1,369 @@
+@import '_vars.scss';
+@import 'text.scss';
+@import 'slider.scss';
+@import 'badge.scss';
+@import 'mobiscrollCustom.scss';
+@import 'chart.scss';
+@import 'editor.scss';
+.copy-container {
+  position: fixed;
+  z-index: 0;
+}
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/BasisGrotesquePro-MediumItalic.eot');
+  src: local('Basis Grotesque Pro Medium Italic'), local('BasisGrotesquePro-MediumItalic'),
+    url('../fonts/BasisGrotesquePro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BasisGrotesquePro-MediumItalic.woff2') format('woff2'),
+    url('../fonts/BasisGrotesquePro-MediumItalic.woff') format('woff'),
+    url('../fonts/BasisGrotesquePro-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/BasisGrotesquePro-Regular.eot');
+  src: local('Basis Grotesque Pro Regular'), local('BasisGrotesquePro-Regular'),
+    url('../fonts/BasisGrotesquePro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BasisGrotesquePro-Regular.woff2') format('woff2'),
+    url('../fonts/BasisGrotesquePro-Regular.woff') format('woff'),
+    url('../fonts/BasisGrotesquePro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/BasisGrotesquePro-BoldItalic.eot');
+  src: local('Basis Grotesque Pro Bold Italic'), local('BasisGrotesquePro-BoldItalic'),
+    url('../fonts/BasisGrotesquePro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BasisGrotesquePro-BoldItalic.woff2') format('woff2'),
+    url('../fonts/BasisGrotesquePro-BoldItalic.woff') format('woff'),
+    url('../fonts/BasisGrotesquePro-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Italic.eot');
+  src: local('Basis Grotesque Pro Italic'), local('BasisGrotesquePro-Italic'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Italic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Italic.woff2')
+      format('woff2'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Italic.woff')
+      format('woff'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Italic.ttf')
+      format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-BlackItalic.eot');
+  src: local('Basis Grotesque Pro Black Italic'), local('BasisGrotesquePro-BlackItalic'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-BlackItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-BlackItalic.woff2')
+      format('woff2'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-BlackItalic.woff')
+      format('woff'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-BlackItalic.ttf')
+      format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Black.eot');
+  src: local('Basis Grotesque Pro Black'), local('BasisGrotesquePro-Black'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Black.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Black.woff2')
+      format('woff2'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Black.woff') format('woff'),
+    url('../fonts/../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-Black.ttf')
+      format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-LightItalic.eot');
+  src: local('Basis Grotesque Pro Light Italic'), local('BasisGrotesquePro-LightItalic'),
+    url('../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-LightItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-LightItalic.woff2') format('woff2'),
+    url('../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-LightItalic.woff') format('woff'),
+    url('../fonts/../fonts/../fonts/../fonts/BasisGrotesquePro-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/../fonts/../fonts/BasisGrotesquePro-Light.eot');
+  src: local('Basis Grotesque Pro Light'), local('BasisGrotesquePro-Light'),
+    url('../fonts/../fonts/../fonts/BasisGrotesquePro-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/../fonts/../fonts/BasisGrotesquePro-Light.woff2') format('woff2'),
+    url('../fonts/../fonts/../fonts/BasisGrotesquePro-Light.woff') format('woff'),
+    url('../fonts/../fonts/../fonts/BasisGrotesquePro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/../fonts/BasisGrotesquePro-Bold.eot');
+  src: local('Basis Grotesque Pro Bold'), local('BasisGrotesquePro-Bold'),
+    url('../fonts/../fonts/BasisGrotesquePro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/../fonts/BasisGrotesquePro-Bold.woff2') format('woff2'),
+    url('../fonts/../fonts/BasisGrotesquePro-Bold.woff') format('woff'),
+    url('../fonts/../fonts/BasisGrotesquePro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('../fonts/BasisGrotesquePro-Medium.eot');
+  src: local('Basis Grotesque Pro Medium'), local('BasisGrotesquePro-Medium'),
+    url('../fonts/BasisGrotesquePro-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BasisGrotesquePro-Medium.woff2') format('woff2'),
+    url('../fonts/BasisGrotesquePro-Medium.woff') format('woff'),
+    url('../fonts/BasisGrotesquePro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+.custom-icomoon {
+  max-width: 48px;
+  max-height: 48px;
+}
+
+.custom-icomoon-large {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $white inset !important;
+  -webkit-text-fill-color: $section-title !important;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6a6d8f;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6a6d8f;
+}
+
+.directions.success {
+  border: 1px solid $success-hover-border;
+  color: $success-hover-border;
+  background-color: $white;
+
+  &.active {
+    border: 1px solid $success-active-bg;
+    background: $success-active-bg;
+    color: $success-active-text;
+  }
+
+  &:hover {
+    border: 1px solid $success-active-bg;
+    background: $success-active-bg;
+    color: $success-active-text;
+  }
+
+  input:checked + & {
+    border: 1px solid $success-active-hover-bg;
+    background: $success-active-hover-bg !important;
+    color: $white !important;
+  }
+  input:checked + & {
+    &:hover {
+      border: 1px solid $success-active-hover-bg;
+      background: $success-active-hover-bg !important;
+      color: $white !important;
+    }
+  }
+}
+.directions.warning {
+  border: 1px solid $warning-hover-border;
+  color: $warning-hover-border;
+  background-color: $white;
+
+  &.active {
+    border: 1px solid $warning-active-bg;
+    background: $warning-active-bg;
+    color: $warning-active-text;
+  }
+
+  &:hover {
+    border: 1px solid $warning-active-bg;
+    background: $warning-active-bg;
+    color: $warning-active-text;
+  }
+
+  input:checked + & {
+    border: 1px solid $warning-active-hover-bg;
+    background: $warning-active-hover-bg !important;
+    color: $white !important;
+  }
+
+  input:checked + & {
+    &:hover {
+      border: 1px solid $warning-active-hover-bg;
+      background: $warning-active-hover-bg !important;
+      color: $white !important;
+    }
+  }
+}
+.directions.danger {
+  border: 1px solid $danger-hover-border;
+  color: $danger-hover-border;
+  background-color: $white;
+
+  &.active {
+    border: 1px solid $danger-active-bg;
+    background: $danger-active-bg;
+    color: $danger-active-text;
+  }
+
+  &:hover {
+    border: 1px solid $danger-active-bg;
+    background: $danger-active-bg;
+    color: $danger-active-text;
+  }
+
+  input:checked + & {
+    border: 1px solid $danger-active-hover-bg;
+    background: $danger-active-hover-bg !important;
+    color: $white !important;
+  }
+
+  input:checked + & {
+    &:hover {
+      border: 1px solid $danger-active-hover-bg;
+      background: $danger-active-hover-bg !important;
+      color: $white !important;
+    }
+  }
+}
+.directions.primary {
+  border: 1px solid $primary-hover-border;
+  color: $primary-hover-border;
+  background-color: $white;
+
+  &.active {
+    border: 1px solid $primary-active-bg;
+    background: $primary-active-bg;
+    color: $primary-active-text;
+  }
+
+  &:hover {
+    border: 1px solid $primary-active-bg;
+    background: $primary-active-bg;
+    color: $primary-active-text;
+  }
+
+  input:checked + & {
+    border: 1px solid $primary-active-hover-bg;
+    background: $primary-active-hover-bg !important;
+    color: $white !important;
+  }
+
+  input:checked + & {
+    &:hover {
+      border: 1px solid $primary-active-hover-bg;
+      background: $primary-active-hover-bg !important;
+      color: $white !important;
+    }
+  }
+}
+.directions.info {
+  border: 1px solid $info-hover-border;
+  color: $info-hover-border;
+  background-color: $white;
+
+  &.active {
+    border: 1px solid $info-active-bg;
+    background: $info-active-bg;
+    color: $info-active-text;
+  }
+
+  &:hover {
+    border: 1px solid $info-active-bg;
+    background: $info-active-bg;
+    color: $info-active-text;
+  }
+
+  input:checked + & {
+    border: 1px solid $info-active-hover-bg;
+    background: $info-active-hover-bg !important;
+    color: $white !important;
+  }
+
+  input:checked + & {
+    &:hover {
+      border: 1px solid $info-active-hover-bg;
+      background: $info-active-hover-bg !important;
+      color: $white !important;
+    }
+  }
+}
+.directions.mint {
+  border: 1px solid $mint-hover-border;
+  color: $mint-hover-border;
+  background-color: $white;
+
+  &.active {
+    border: 1px solid $mint-active-bg;
+    background: $mint-active-bg;
+    color: $mint-active-text;
+  }
+
+  &:hover {
+    border: 1px solid $mint-active-bg;
+    background: $mint-active-bg;
+    color: $mint-active-text;
+  }
+
+  input:checked + & {
+    border: 1px solid $mint-active-hover-bg;
+    background: $mint-active-hover-bg !important;
+    color: $white !important;
+  }
+
+  input:checked + & {
+    &:hover {
+      border: 1px solid $mint-active-hover-bg;
+      background: $mint-active-hover-bg !important;
+      color: $white !important;
+    }
+  }
+}
+
+.wcm-overlay {
+  z-index: 9999999998 !important;
+}
