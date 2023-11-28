@@ -8,15 +8,15 @@ export const GATE_CONDITIONS = {
 };
 
 export const GATE_CONDITION_DATA = {
-  [GATE_CONDITIONS.ANY_NFT_FROM_COLLECTION]: { icon: 'NFT', label: 'Any NFT from a collection' },
+  [GATE_CONDITIONS.ANY_NFT_FROM_COLLECTION]: { icon: 'NFT', label: 'Any NFT From a Collection' },
   [GATE_CONDITIONS.SPECIFIC_NFT_FROM_COLLECTION]: {
     icon: 'NFT',
-    label: 'Specific NFT from a collection',
+    label: 'Specific NFT From a Collection',
   },
-  [GATE_CONDITIONS.MINIMUN_AMOUNT_OF_TOKEN]: { icon: 'Wallet', label: 'Minimum amount of token' },
+  [GATE_CONDITIONS.MINIMUN_AMOUNT_OF_TOKEN]: { icon: 'Wallet', label: 'Minimum Amount of Token' },
   [GATE_CONDITIONS.WHITELIST_OF_WALLET_ADRESSESS]: {
     icon: 'File',
-    label: 'Whitelist of wallet addresses',
+    label: 'Whitelist of Wallet Addresses',
   },
 };
 

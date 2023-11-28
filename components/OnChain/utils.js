@@ -46,17 +46,17 @@ export const ON_CHAIN_CONDITION_ADDRESSES_NAME = {
 
 export const conditions = [
   {
-    name: 'Talent holds Token',
+    name: 'Talent Holds Token',
     value: ON_CHAIN_CONDITIONS.USER_HOLDS_TOKEN,
     subtitle: 'Verify if a talent owns the minimum quantity of tokens',
   },
   {
-    name: 'Talent holds NFT',
+    name: 'Talent Holds NFT',
     value: ON_CHAIN_CONDITIONS.USER_HOLDS_NFT,
     subtitle: 'Verify if a talent owns a specific NFT or NFT from a collection',
   },
   {
-    name: 'Talent holds POAP',
+    name: 'Talent Holds POAP',
     subtitle: 'Verify if a talent owns a specific POAP or POAP from a collection ',
     value: ON_CHAIN_CONDITIONS.USER_HOLDS_POAP,
   },
@@ -66,7 +66,7 @@ export const conditions = [
   //   value: ON_CHAIN_CONDITIONS.TOKEN_NFT_POAP_NATIVE_TRANSFERS,
   // },
   {
-    name: 'Talent interacted with Contract',
+    name: 'Talent Interacted With Contract',
     subtitle: 'Verify if a talent has interacted with a specific contract',
     value: ON_CHAIN_CONDITIONS.TX_NOT_DONE,
   },
@@ -82,7 +82,7 @@ export const conditions = [
   //   value: ON_CHAIN_CONDITIONS.ANY_CHAIN_ACTION,
   // },
   {
-    name: 'Talent has ENS Domain',
+    name: 'Talent Has ENS Domain',
     subtitle: 'Verify if a talent has a specific ENS Domain',
     value: ON_CHAIN_CONDITIONS.USER_HAS_ENS_DOMAIN,
   },
@@ -102,7 +102,7 @@ export const conditions = [
   //   value: ON_CHAIN_CONDITIONS.USER_HAS_ERC_721_AND_ERC_1155_TOKENS,
   // },
   {
-    name: 'Talent interacted with Blockchain',
+    name: 'Talent Interacted With Blockchain',
     subtitle: 'Verify if a talent has any transactions on a specific blockchain',
     value: ON_CHAIN_CONDITIONS.INTERACTED_WITH_BLOCKCHAIN,
   },
